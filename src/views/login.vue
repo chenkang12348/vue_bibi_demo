@@ -39,11 +39,15 @@ export default {
       if (relg.test(username) && relg.test(password)) {
         // console.log('正则校验成功')
         const { data: res } = await this.$http.post('/login', this.userinfo)
-        console.log(res)
+
         if (res.code !== 200) {
           this.$toast.fail(res.msg)
         } else {
           this.$toast.success(res.msg)
+          sessionStorage.setItem('id', res.id)
+          sessionStorage.setItem('token', res.token)
+
+          this.$router.push('/userinfo')
         }
       } else {
         this.$toast.fail('格式错误，请重新输入6~16字符！')
