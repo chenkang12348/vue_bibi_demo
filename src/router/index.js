@@ -4,6 +4,7 @@ import Register from '../views/register.vue' // 引入
 import Login from '../views/login.vue'
 import userInfo from '@/views/userInfo'
 import { Toast } from 'vant'
+import edit from '@/views/edit'
 
 Vue.use(VueRouter)
 
@@ -11,7 +12,8 @@ const routes = [
   { path: '/', redirect: '/login' }, // 路由跳转
   { path: '/register', component: Register }, // 挂载
   { path: '/login', component: Login },
-  { path: '/userinfo', component: userInfo }
+  { path: '/userinfo', component: userInfo },
+   { path: '/edit', component: edit }
 ]
 
 const router = new VueRouter({

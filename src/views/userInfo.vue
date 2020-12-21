@@ -7,12 +7,15 @@
     <div class="user">
       <user-detail :userinfo="model"></user-detail>
     </div>
+
   </div>
 </template>
 <script>
 import NavBar from '@/components/common/NavBar'
 import userDetail from '@/components/userinfo/userDetail'
+
 export default {
+
   data () {
     return {
       model: {}
@@ -21,25 +24,23 @@ export default {
   components: {
     NavBar,
     userDetail
+
   },
   created () {
     this.userinfoData()
   },
   methods: {
-    async userinfoData () {
-      const res = await this.$http.get('/user/' + sessionStorage.getItem('id')
-        //  {
-        //    headers: {
-        //       Authorization: 'Bearer ' + sessionStorage.getItem('token')
-        //    }
-        //  }
-      )
+     async userInfoData() {
+      const res = await this.$http.get('/user/' + sessionStorage.getItem('id'))
 
+      // 将数组存放到vuex中
       this.model = res.data[0]
       // console.log(this.model)
     }
+
   }
 }
+
 </script>
 <style lang="less" scoped>
 .userinfo {

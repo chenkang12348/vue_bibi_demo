@@ -24,7 +24,7 @@
             <span>获赞</span>
           </div>
         </div>
-        <div class="edit">
+        <div class="edit" @click="$router.push('/edit')">
           编辑资料
         </div>
       </div>
@@ -36,7 +36,7 @@
         <span class="level"></span>
       </div>
       <div class="desc">
-         <span class="content" v-if="userinfo.user_desc">{{userinfo.user_desc}}</span>
+        <span class="content" v-if="userinfo.user_desc">{{userinfo.user_desc}}</span>
         <span class="content" v-else>这个人很神秘，什么都没有写</span>
 
       </div>
